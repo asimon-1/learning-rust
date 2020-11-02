@@ -38,7 +38,7 @@ fn main() {
     let circ1 = Circle { radius: 5 };
 
     println!(
-        "The area of the rectangel is {} square pixels.",
+        "The area of the rectangle is {} square pixels.",
         rect1.area()
     );
     println!("The area of the circle is {} square pixels.", circ1.area());
