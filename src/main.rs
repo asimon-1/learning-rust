@@ -23,9 +23,31 @@ fn create_task(id: u32, text: String) -> Task {
 }
 
 fn list_all_tasks(task_list: &std::vec::Vec<Task>) {
-    println!("Current Task List:");
+    println!("\nCurrent Task List:");
     for t in task_list {
         println!("> {}", t);
+    }
+}
+
+fn complete_task(task_list: &mut std::vec::Vec<Task>) {
+    list_all_tasks(&task_list);
+    let id: u32 = {
+        loop {
+            println!("\nWhich task should be completed?");
+            let mut id = String::new();
+            io::stdin().read_line(&mut id).expect("Failed to read line");
+            match id.trim().parse() {
+                Ok(num) => break num,
+                Err(_) => continue,
+            };
+        }
+    };
+    for (index, task) in task_list.iter().enumerate() {
+        if task.id == id {
+            println!("Marked task {} as complete.", id);
+            task_list[index].completed = true;
+            break;
+        }
     }
 }
 
@@ -50,11 +72,12 @@ fn main() {
                 task_list.push(create_task(id, text));
             }
             "l" => list_all_tasks(&task_list),
-            // "c" => complete_task(task_list), // Not yet written
+            "c" => complete_task(&mut task_list),
             "q" => break,
-            _ => { println!("Invalid input.");
-            continue;
-        }
+            _ => {
+                println!("Invalid input.");
+                continue;
+            }
         }
     }
 }
