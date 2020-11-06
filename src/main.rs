@@ -1,7 +1,6 @@
 use std::fmt;
 use std::io;
 
-#[derive(Debug)]
 struct Task {
     id: u32,
     completed: bool,
@@ -23,7 +22,7 @@ fn create_task(id: u32, text: String) -> Task {
     }
 }
 
-fn list_all_tasks(task_list: std::vec::Vec<Task>) {
+fn list_all_tasks(task_list: &std::vec::Vec<Task>) {
     println!("Current Task List:");
     for t in task_list {
         println!("> {}", t);
@@ -50,10 +49,12 @@ fn main() {
                 id += 1;
                 task_list.push(create_task(id, text));
             }
-            "l" => list_all_tasks(task_list),
+            "l" => list_all_tasks(&task_list),
             // "c" => complete_task(task_list), // Not yet written
             "q" => break,
-            _ => continue,
+            _ => { println!("Invalid input.");
+            continue;
+        }
         }
     }
 }
