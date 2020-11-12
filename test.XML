@@ -1,0 +1,21 @@
+<xml>
+    <transactions>
+        <transaction date="1604345460" type="wf_export_document_attributes" vaultname="Sandbox">
+            <document aliasset="BC365_Alias" id="SS-400-3" idattribute="Part Number" idcfgname="" pdmweid="209">
+                <configuration name="SS-400-3" quantity="1">
+                    <attribute name="Released Date" value=""/>
+                    <attribute name="Rev" value="0"/>
+                    <attribute name="Description" value="Union Tee, 1/4 in. Tube OD"/>
+                    <attribute name="Search Description" value=""/>
+                    <attribute name="No." value="SS-400-3"/>
+                    <attribute name="Manufacturer Code" value="Swagelok"/>
+                    <attribute name="Requires Inspection" value="No"/>
+                    <attribute name="Finish" value="-"/>
+                    <attribute name="Net Weight" value="0.16"/>
+                    <attribute name="Replenishment System" value="Purchased"/>
+                    <attribute name="Reference Count" value="1.0"/>
+                </configuration>
+            </document>
+        </transaction>
+    </transactions>
+</xml>
